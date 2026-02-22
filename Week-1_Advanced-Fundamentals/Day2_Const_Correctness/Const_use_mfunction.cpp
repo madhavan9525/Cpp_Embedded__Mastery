@@ -6,7 +6,7 @@ public:
     Counter(int v) : value(v) {}
 
     int get() const {
-       //alue++;  // ❌ try uncommenting this line
+       //value++;  // ❌ try uncommenting this line
         return value;   // ✅ allowed
     }
 
