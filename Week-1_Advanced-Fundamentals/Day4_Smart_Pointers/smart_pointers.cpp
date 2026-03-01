@@ -26,6 +26,16 @@ struct Node {
 
 int main(){
 
+/* WRONG
+    std::unique_ptr<Device> d = new Device("sensor");
+
+// CORRECT
+    std::unique_ptr<Device> d(new Device("sensor"));
+
+// or better
+    auto d = std::make_unique<Device>("sensor");
+    */
+
 //Unique pointers
     std::unique_ptr<Device> d =std::make_unique<Device>("samsung");
     auto d1 = std::make_unique<Device>("sensor");
@@ -53,6 +63,23 @@ int main(){
 
     
 }
+
+
+/* 
+Output: 
+Device samsung is created
+Device sensor is created
+d1 is empty
+Device shared sensor is created
+owners:2
+owners:1
+n1 created
+n2 created
+Device shared sensor is destroyed
+Device sensor is destroyed
+Device samsung is destroyed
+
+*/
 
 
     
